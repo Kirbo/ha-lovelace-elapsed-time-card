@@ -142,6 +142,14 @@ export class TimeElapsedCard extends LitElement {
   }
 
   protected timeElapsed(): string {
+    if (!this.config.max_today) {
+      const today = this.hass.states[this.config.time_today];
+
+      const timeToday = DateTime.fromSeconds(this.parseTime(today), { zone: 'utc' });
+
+      return this.timeFormat(timeToday);
+    }
+
     const today = this.hass.states[this.config.time_today];
     const max = this.hass.states[this.config.max_today];
 
@@ -177,16 +185,16 @@ export class TimeElapsedCard extends LitElement {
   // https://lit-element.polymer-project.org/guide/templates
   protected render(): TemplateResult | void {
     return html`
-      <ha-card tabindex="0">
-        <div class="elapsed-time-card">
+      <ha-card tabindex="0" class="elapsed-time-card">
+        <div class="elapsed-time-card__container">
           ${this.config.icon
             ? html`
-                <ha-icon class="elapsed-time-card__icon" .icon=${`mdi:${this.config.icon}`}></ha-icon>
+                <ha-icon class="elapsed-time-card__container__icon" .icon=${`mdi:${this.config.icon}`}></ha-icon>
               `
             : ''}
           ${this.config.name
             ? html`
-                <div class="elapsed-time-card__header">${this.config.name}</div>
+                <div class="elapsed-time-card__container__header">${this.config.name}</div>
               `
             : ''}
           ${this.renderTime()}
@@ -199,17 +207,24 @@ export class TimeElapsedCard extends LitElement {
   static get styles(): CSSResult {
     return css`
       .elapsed-time-card {
+        height: 100%;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .elapsed-time-card__container {
         --mdc-icon-size: 64px;
         display: grid;
         font-family: var(--paper-font-caption_-_font-family);
-        font-size: 20px;
+        font-size: 26px;
         font-weight: 700;
-        grid-gap: 6px;
+        grid-gap: 10px;
         justify-items: center;
         padding: 25px;
       }
 
-      .elapsed-time-card__header {
+      .elapsed-time-card__container__header {
         display: grid;
         font-family: var(--paper-font-caption_-_font-family);
         font-size: 16px;

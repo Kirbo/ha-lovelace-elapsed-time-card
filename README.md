@@ -24,7 +24,7 @@ Hey dude! Help me out for a couple of :beers: or a :coffee:!
 | ----------- | ------ | ------------ | -------------------------- | ----------- |
 | type        | string | **Required** | `custom:elapsed-time-card` |
 | time_today  | string | **Required** | Home Assistant entity ID.  | `none`      |
-| max_today   | string | **Required** | Home Assistant entity ID.  | `none`      |
+| max_today   | string | **Optional** | Home Assistant entity ID.  | `none`      |
 | format      | string | **Required** | Format for the card        | `Time Left` |
 | time_format | string | **Required** | Card name                  | `1h 5m`     |
 | name        | string | **Optional** | Name to show on card       | `none`      |
