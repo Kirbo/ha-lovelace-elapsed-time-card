@@ -81,7 +81,7 @@ icon: sony-playstation
 type: horizontal-stack
 cards:
   - type: vertical-stack
-    title: Today
+    title: Today elapsed
     cards:
       - format: Time Elapsed
         time_format: 1h 5m
@@ -102,7 +102,7 @@ cards:
         icon: monitor-eye
         time_today: sensor.ps4_playing
   - type: vertical-stack
-    title: Today
+    title: Today left
     cards:
       - format: Time Left
         time_format: 1h 5m
@@ -126,7 +126,7 @@ cards:
         time_today: sensor.ps4_playing
         max_today: sensor.ps4_playing
   - type: vertical-stack
-    title: Today
+    title: Today total
     cards:
       - format: Time Elapsed
         time_format: '01:05'
@@ -149,7 +149,7 @@ cards:
         icon: monitor-eye
         time_today: sensor.ps4_playing
   - type: vertical-stack
-    title: This week
+    title: This week elapsed
     cards:
       - format: Time Elapsed
         time_format: 1h 5m
@@ -170,7 +170,7 @@ cards:
         icon: monitor-eye
         time_today: sensor.ps4_weekly_playing
   - type: vertical-stack
-    title: This week
+    title: This week elapsed
     cards:
       - format: Time Elapsed
         time_format: '01:05'
