@@ -42,6 +42,8 @@ Show time in `<time remaining>` format, e.g.: `00:06` or `6m`, depending on `tim
 
 ## Examples
 
+### Card examples
+
 ![Cartoons Watched](./screenshots/cartoons-watched.png)
 
 ```yaml
@@ -66,8 +68,129 @@ name: Game time left
 icon: sony-playstation
 ```
 
+### Editor examples
+
 ![Game time left - Editor 1](./screenshots/game-time-left-editor-1.png)
 ![Game time left - Editor 2](./screenshots/game-time-left-editor-2.png)
+
+### Panel example
+
+![Time Cards and history example](./screenshots/time-cards-and-history-example.png)
+
+```yaml
+type: horizontal-stack
+cards:
+  - type: vertical-stack
+    title: Today
+    cards:
+      - format: Time Elapsed
+        time_format: 1h 5m
+        type: 'custom:elapsed-time-card'
+        name: Played total
+        icon: gamepad-variant
+        time_today: sensor.ps4_playing_game
+      - format: Time Elapsed
+        time_format: 1h 5m
+        type: 'custom:elapsed-time-card'
+        name: Watched total
+        icon: youtube
+        time_today: sensor.ps4_playing_app
+      - format: Time Elapsed
+        time_format: 1h 5m
+        type: 'custom:elapsed-time-card'
+        name: Screentime total
+        icon: monitor-eye
+        time_today: sensor.ps4_playing
+  - type: vertical-stack
+    title: Today
+    cards:
+      - format: Time Left
+        time_format: 1h 5m
+        type: 'custom:elapsed-time-card'
+        name: Game time left
+        icon: gamepad-variant
+        time_today: sensor.ps4_playing_game
+        max_today: input_datetime.ps4_game_time
+      - format: Time Left
+        time_format: 1h 5m
+        type: 'custom:elapsed-time-card'
+        name: Videos left
+        icon: youtube
+        time_today: sensor.ps4_playing_app
+        max_today: input_datetime.ps4_vod_time
+      - format: Time Left
+        time_format: 1h 5m
+        type: 'custom:elapsed-time-card'
+        name: Screentime left
+        icon: monitor-eye
+        time_today: sensor.ps4_playing
+        max_today: sensor.ps4_playing
+  - type: vertical-stack
+    title: Today
+    cards:
+      - format: Time Elapsed
+        time_format: '01:05'
+        type: 'custom:elapsed-time-card'
+        name: Played total
+        icon: gamepad-variant
+        max_today: input_datetime.ps4_game_time
+        time_today: sensor.ps4_playing_game
+      - format: Time Elapsed
+        time_format: '01:05'
+        type: 'custom:elapsed-time-card'
+        name: Watched total
+        icon: youtube
+        time_today: sensor.ps4_playing_app
+        max_today: input_datetime.ps4_vod_time
+      - format: Time Elapsed
+        time_format: '01:05'
+        type: 'custom:elapsed-time-card'
+        name: Screentime total
+        icon: monitor-eye
+        time_today: sensor.ps4_playing
+  - type: vertical-stack
+    title: This week
+    cards:
+      - format: Time Elapsed
+        time_format: 1h 5m
+        type: 'custom:elapsed-time-card'
+        name: Played total
+        icon: gamepad-variant
+        time_today: sensor.ps4_weekly_game
+      - format: Time Elapsed
+        time_format: 1h 5m
+        type: 'custom:elapsed-time-card'
+        name: Watched total
+        icon: youtube
+        time_today: sensor.ps4_weekly_app
+      - format: Time Elapsed
+        time_format: 1h 5m
+        type: 'custom:elapsed-time-card'
+        name: Screentime total
+        icon: monitor-eye
+        time_today: sensor.ps4_weekly_playing
+  - type: vertical-stack
+    title: This week
+    cards:
+      - format: Time Elapsed
+        time_format: '01:05'
+        type: 'custom:elapsed-time-card'
+        name: Played total
+        icon: gamepad-variant
+        time_today: sensor.ps4_weekly_game
+      - format: Time Elapsed
+        time_format: '01:05'
+        type: 'custom:elapsed-time-card'
+        name: Watched total
+        icon: youtube
+        time_today: sensor.ps4_weekly_app
+      - format: Time Elapsed
+        time_format: '01:05'
+        type: 'custom:elapsed-time-card'
+        name: Screentime total
+        icon: monitor-eye
+        time_today: sensor.ps4_weekly_playing
+```
 
 [commits-shield]: https://img.shields.io/github/commit-activity/y/kirbo/ha-lovelace-elapsed-time-card.svg?style=for-the-badge
 [commits]: https://github.com/kirbo/ha-lovelace-elapsed-time-card/commits/master
