@@ -18,20 +18,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
       - name: Build the file
         run: |
           cd /home/runner/work/ha-lovelace-elapsed-time-card/ha-lovelace-elapsed-time-card
           npm install
           npm run build
-      - name: Upload zip to release
-        uses: svenstaro/upload-release-action@v1-release
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: /home/runner/work/ha-lovelace-elapsed-time-card/ha-lovelace-elapsed-time-card/dist/elapsed-time-card.js
-          asset_name: elapsed-time-card.js
-          tag: ${{ github.ref }}
-          overwrite: true
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
