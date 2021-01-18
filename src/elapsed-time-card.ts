@@ -164,10 +164,10 @@ export class TimeElapsedCard extends LitElement {
     const max = this.hass.states[this.config.max_today];
 
     const timeLeft = this.parseTime(max) - this.parseTime(today);
+    const negative = timeLeft < 0 ? true : false;
+    const timeLeftToday = DateTime.fromSeconds(negative ? Math.abs(timeLeft) : timeLeft, { zone: 'utc' });
 
-    const timeLeftToday = DateTime.fromSeconds(timeLeft, { zone: 'utc' });
-
-    return this.timeFormat(timeLeftToday);
+    return `${negative ? '-' : ''}${this.timeFormat(timeLeftToday)}`;
   }
 
   protected renderTime(): string {
