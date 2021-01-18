@@ -1,0 +1,13 @@
+{
+  "branches": [
+    "master"
+  ],
+  "repositoryUrl": "https://github.com/kirbo/ha-lovelace-elapsed-time-card.git",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/github"
+  ],
+  "tagFormat": "${version}",
+  "ci": true
+}
