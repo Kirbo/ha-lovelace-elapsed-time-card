@@ -1,6 +1,5 @@
 {
   "name": "elapsed-time-card",
-  "version": "0.2.2",
   "description": "Lovelace elapsed-time-card",
   "keywords": [
     "home-assistant",
@@ -11,6 +10,7 @@
     "custom-cards"
   ],
   "module": "elapsed-time-card.js",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/kirbo/ha-lovelace-elapsed-time-card.git"
