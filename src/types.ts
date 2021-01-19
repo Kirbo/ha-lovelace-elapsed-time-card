@@ -8,7 +8,7 @@ declare global {
 }
 
 // TODO Add your configuration elements here for type-checking
-export interface TimeElapsedCardConfig extends LovelaceCardConfig {
+export interface ElapsedTimeCardConfig extends LovelaceCardConfig {
   type: string;
   format?: string;
   time_format?: string;

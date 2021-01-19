@@ -15,7 +15,7 @@ import { DateTime } from 'luxon';
 import { CARD_VERSION } from './const';
 import './editor';
 import { localize } from './localize/localize';
-import { TimeElapsedCardConfig } from './types';
+import { ElapsedTimeCardConfig } from './types';
 
 const { TIME_24_SIMPLE } = DateTime;
 
@@ -36,7 +36,7 @@ console.info(
 
 // TODO Name your custom element
 @customElement('elapsed-time-card')
-export class TimeElapsedCard extends LitElement {
+export class ElapsedTimeCard extends LitElement {
   public static async getConfigElement(): Promise<LovelaceCardEditor> {
     return document.createElement('elapsed-time-card-editor');
   }
@@ -48,10 +48,10 @@ export class TimeElapsedCard extends LitElement {
   // TODO Add any properities that should cause your element to re-render here
   // https://lit-element.polymer-project.org/guide/properties
   @property({ attribute: false }) public hass!: HomeAssistant;
-  @internalProperty() private config!: TimeElapsedCardConfig;
+  @internalProperty() private config!: ElapsedTimeCardConfig;
 
   // https://lit-element.polymer-project.org/guide/properties#accessors-custom
-  public setConfig(config: TimeElapsedCardConfig): void {
+  public setConfig(config: ElapsedTimeCardConfig): void {
     // TODO Check for required fields and that they are of the proper format
     if (!config) {
       throw new Error(localize('common.invalid_configuration'));

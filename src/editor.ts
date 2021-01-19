@@ -11,7 +11,7 @@ import {
   property,
   TemplateResult,
 } from 'lit-element';
-import { TimeElapsedCardConfig } from './types';
+import { ElapsedTimeCardConfig } from './types';
 
 const options = {
   required: {
@@ -32,14 +32,14 @@ const formats = ['Time Elapsed', 'Time Left'].sort();
 const time_formats = ['01:05', '1h 5m'].sort();
 
 @customElement('elapsed-time-card-editor')
-export class TimeElapsedCardEditor extends LitElement implements LovelaceCardEditor {
+export class ElapsedTimeCardEditor extends LitElement implements LovelaceCardEditor {
   @property({ attribute: false }) public hass?: HomeAssistant;
-  @internalProperty() private _config?: TimeElapsedCardConfig;
+  @internalProperty() private _config?: ElapsedTimeCardConfig;
   @internalProperty() private _toggle?: boolean;
   @internalProperty() private _helpers?: any;
   private _initialized = false;
 
-  public setConfig(config: TimeElapsedCardConfig): void {
+  public setConfig(config: ElapsedTimeCardConfig): void {
     this._config = {
       format: 'Time Left',
       time_format: '1h 5m',
