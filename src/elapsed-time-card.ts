@@ -75,7 +75,7 @@ export class ElapsedTimeCard extends LitElement {
       return true;
     }
 
-    if (element.config?.time_today && element.config?.max_today) {
+    if (element.config?.time_today || element.config?.max_today) {
       const oldHass = changedProps.get('hass') as HomeAssistant | undefined;
       if (oldHass) {
         return (
