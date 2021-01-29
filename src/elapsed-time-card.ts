@@ -121,15 +121,15 @@ export class ElapsedTimeCard extends LitElement {
     switch (this.config.time_format) {
       case '1h 5m': {
         const values: string[] = [];
-        if (time.hour > 0) {
+        if (time.hour > 0 || time.hour < 0) {
           values.push(time.toFormat("H'h'"));
         }
-        if (time.minute > 0) {
+        if (time.minute > 0 || time.minute < 0) {
           values.push(time.toFormat("m'm'"));
         }
 
         if (values.length < 1) {
-          values.push(time.toFormat("m'm'"));
+          values.push(time.toFormat("s's'"));
         }
 
         return values.join(' ');
