@@ -11,7 +11,7 @@ import {
   PropertyValues,
   TemplateResult,
 } from 'lit-element';
-import { DateTime } from 'luxon';
+import { DateTime, Duration } from 'luxon';
 import { CARD_VERSION } from './const';
 import './editor';
 import { localize } from './localize/localize';
@@ -122,21 +122,29 @@ export class ElapsedTimeCard extends LitElement {
   }
 
   protected timeFormat(time: DateTime): string {
+    const now = DateTime.fromMillis(0);
+    const then = DateTime.fromISO(time.toISO());
+
+    const diff = then.diff(now, ['days', 'hours', 'minutes', 'seconds']);
+
     switch (this.config.time_format) {
       case '1h 5m': {
         const values: string[] = [];
-        if (time.day > 0 || time.day < 0) {
-          values.push(time.toFormat("d'd'"));
+        if (diff.days > 0 || diff.days < 0) {
+          values.push(`${diff.days}d`);
         }
-        if (time.hour > 0 || time.hour < 0) {
-          values.push(time.toFormat("H'h'"));
+        if (diff.hours > 0 || diff.hours < 0) {
+          values.push(`${diff.hours}h`);
         }
-        if (time.minute > 0 || time.minute < 0) {
-          values.push(time.toFormat("m'm'"));
+        if (diff.minutes > 0 || diff.minutes < 0) {
+          values.push(`${diff.minutes}m`);
+        }
+        if (diff.seconds > 0 || diff.seconds < 0) {
+          values.push(`${Math.round(diff.seconds)}s`);
         }
 
         if (values.length < 1) {
-          values.push(time.toFormat("s's'"));
+          values.push(diff.toFormat("s's'"));
         }
 
         return values.join(' ');
