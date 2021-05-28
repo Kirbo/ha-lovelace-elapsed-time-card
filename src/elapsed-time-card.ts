@@ -139,9 +139,9 @@ export class ElapsedTimeCard extends LitElement {
         if (diff.minutes > 0 || diff.minutes < 0) {
           values.push(`${diff.minutes}m`);
         }
-        if (diff.seconds > 0 || diff.seconds < 0) {
-          values.push(`${Math.round(diff.seconds)}s`);
-        }
+        // if (diff.seconds > 0 || diff.seconds < 0) {
+        //   values.push(`${Math.round(diff.seconds)}s`);
+        // }
 
         if (values.length < 1) {
           values.push(diff.toFormat("s's'"));
