@@ -18,6 +18,14 @@ Hey dude! Help me out for a couple of :beers: or a :coffee:!
 
 [![coffee](https://www.buymeacoffee.com/assets/img/custom_images/black_img.png)](https://www.buymeacoffee.com/kirbo)
 
+## Notice
+
+The card will show only entities that have `unit_of_measurement` one of the following:
+- `s` = seconds
+- `m` = minutes
+- `h` = hours
+- `d` = days
+
 ## Options
 
 | Name        | Type   | Requirement  | Description                | Default     |

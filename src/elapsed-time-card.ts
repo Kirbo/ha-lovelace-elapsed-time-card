@@ -114,6 +114,10 @@ export class ElapsedTimeCard extends LitElement {
       return parseFloat(entity.state) * 60 * 60;
     }
 
+    if (entity?.attributes?.unit_of_measurement === 'd') {
+      return parseFloat(entity.state) * 60 * 60 * 24;
+    }
+
     return 0;
   }
 
@@ -121,6 +125,9 @@ export class ElapsedTimeCard extends LitElement {
     switch (this.config.time_format) {
       case '1h 5m': {
         const values: string[] = [];
+        if (time.day > 0 || time.day < 0) {
+          values.push(time.toFormat("d'd'"));
+        }
         if (time.hour > 0 || time.hour < 0) {
           values.push(time.toFormat("H'h'"));
         }

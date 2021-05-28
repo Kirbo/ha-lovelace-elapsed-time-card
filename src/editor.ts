@@ -109,7 +109,10 @@ export class ElapsedTimeCardEditor extends LitElement implements LovelaceCardEdi
     const entities = Object.keys(this.hass.states).filter(entity_id => {
       const entity = this.hass?.states[entity_id];
 
-      if (entity?.attributes.unit_of_measurement && ['h', 'm', 's'].includes(entity.attributes.unit_of_measurement)) {
+      if (
+        entity?.attributes.unit_of_measurement &&
+        ['d', 'h', 'm', 's'].includes(entity.attributes.unit_of_measurement)
+      ) {
         return true;
       }
 
