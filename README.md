@@ -18,18 +18,6 @@ Hey dude! Help me out for a couple of :beers: or a :coffee:!
 
 [![coffee](https://www.buymeacoffee.com/assets/img/custom_images/black_img.png)](https://www.buymeacoffee.com/kirbo)
 
-## Notice
-
-The card will show only entities that:
-- have `unit_of_measurement` one of the following (i.e. `input_number`, etc.):
-  - `s` = seconds
-  - `m` = minutes
-  - `h` = hours
-  - `d` = days
-- have one of the following attributes (i.e. `input_datetime`):
-  - `has_time`
-  - `has_date`
-
 ## Options
 
 | Name        | Type   | Requirement  | Description                | Default     |
@@ -260,6 +248,18 @@ time_today: sensor.ps4_playing_game
 ```
 And it will look like:
 ![Cartoons Watched](./screenshots/example_screenshot_1.png)
+
+## Notice
+
+The card will show only entities that:
+- have `unit_of_measurement` one of the following (i.e. `input_number`, etc.):
+  - `s` = seconds
+  - `m` = minutes
+  - `h` = hours
+  - `d` = days
+- have one of the following attributes (i.e. `input_datetime`):
+  - `has_time`
+  - `has_date`
 
 
 
