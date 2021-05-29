@@ -20,11 +20,15 @@ Hey dude! Help me out for a couple of :beers: or a :coffee:!
 
 ## Notice
 
-The card will show only entities that have `unit_of_measurement` one of the following:
-- `s` = seconds
-- `m` = minutes
-- `h` = hours
-- `d` = days
+The card will show only entities that:
+- have `unit_of_measurement` one of the following (i.e. `input_number`, etc.):
+  - `s` = seconds
+  - `m` = minutes
+  - `h` = hours
+  - `d` = days
+- have one of the following attributes (i.e. `input_datetime`):
+  - `has_time`
+  - `has_date`
 
 ## Options
 
@@ -199,6 +203,65 @@ cards:
         icon: monitor-eye
         time_today: sensor.ps4_weekly_playing
 ```
+
+### Example sensors
+
+#### PS4 restrictions and stuff
+
+**sensors**
+```yaml
+- platform: template
+  sensors:
+    ps4_media_content_type:
+      friendly_name: "PS4 - Media content type"
+      value_template: "{{ state_attr('media_player.ps4', 'media_content_type') }}"
+      
+- platform: history_stats
+  name: PS4 Playing (game)
+  entity_id: sensor.ps4_media_content_type
+  state: "game"
+  type: time
+  start: "{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}"
+  end: "{{ now() }}"
+
+- platform: history_stats
+  name: PS4 Playing (app)
+  entity_id: sensor.ps4_media_content_type
+  state: "app"
+  type: time
+  start: "{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}"
+  end: "{{ now() }}"
+```
+
+**input_datetime**
+```yaml
+ps4_game_time:
+  name: PS4 - Game time
+  icon: mdi:sony-playstation
+  has_date: false
+  has_time: true
+
+ps4_app_time:
+  name: PS4 - APP time
+  icon: mdi:netflix
+  has_date: false
+  has_time: true
+```
+
+With the entities above, you can use this configuration:
+```yaml
+format: Time Elapsed
+time_format: '01:05'
+type: 'custom:elapsed-time-card'
+name: Played total
+icon: gamepad-variant
+max_today: input_datetime.ps4_game_time
+time_today: sensor.ps4_playing_game
+```
+And it will look like:
+![Cartoons Watched](./screenshots/example_screenshot_1.png)
+
+
 
 [commits-shield]: https://img.shields.io/github/commit-activity/y/kirbo/ha-lovelace-elapsed-time-card.svg?style=for-the-badge
 [commits]: https://github.com/kirbo/ha-lovelace-elapsed-time-card/commits/master
