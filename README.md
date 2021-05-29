@@ -274,3 +274,9 @@ The card will show only entities that:
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2020.svg?style=for-the-badge
 [releases-shield]: https://img.shields.io/github/release/kirbo/ha-lovelace-elapsed-time-card.svg?style=for-the-badge
 [releases]: https://github.com/kirbo/ha-lovelace-elapsed-time-card/releases
+
+
+## My stats
+![Kirbo's GitHub stats](https://github-readme-stats.vercel.app/api?username=Kirbo&count_private=true&show_icons=true&theme=merko)
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Kirbo&langs_count=8&theme=merko&layout=compact)
