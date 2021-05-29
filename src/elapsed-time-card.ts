@@ -102,6 +102,10 @@ export class ElapsedTimeCard extends LitElement {
       return entity.attributes.timestamp;
     }
 
+    if (entity?.attributes?.device_class === 'timestamp') {
+      return DateTime.fromISO(entity.state).toSeconds();
+    }
+
     if (entity?.attributes?.unit_of_measurement === 's') {
       return parseFloat(entity.state);
     }

@@ -116,6 +116,10 @@ export class ElapsedTimeCardEditor extends LitElement implements LovelaceCardEdi
         return true;
       }
 
+      if (entity?.attributes.device_class === 'timestamp') {
+        return true;
+      }
+
       if (entity?.attributes.has_time && entity.attributes.has_time) {
         return true;
       }
