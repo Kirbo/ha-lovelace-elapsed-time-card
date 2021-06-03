@@ -11,7 +11,7 @@ import {
   PropertyValues,
   TemplateResult,
 } from 'lit-element';
-import { DateTime, Duration } from 'luxon';
+import { DateTime } from 'luxon';
 import { CARD_VERSION } from './const';
 import './editor';
 import { localize } from './localize/localize';
